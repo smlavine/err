@@ -25,8 +25,8 @@ and might behave completely differently.
   formatted from the given format string and va_list.
   - __warn(char *, ...)__ is a variadic wrapper for vwarn().
 - __vewarn(char *, va_list)__ calls vwarn(), then prints ": " if
-  the format string is neither NULL nor empty, the value of
-  strerror(errno), and a newline.
+  the format string is neither NULL nor empty, then prints the value of
+  strerror(errno) and a newline.
   - __ewarn(char *, ...)__ is a variadic wrapper for vewarn().
 - __verr(int, char *, va_list)__ calls vewarn() and exits the program
   with the provided code.
