@@ -50,7 +50,8 @@ To browse the source code repository, see
 <https://git.sr.ht/~smlavine/err>.
 
 For development discussion and patches related to the project, see the
-mailing list at <https://lists.sr.ht/~smlavine/err-devel>.
+mailing list at <https://lists.sr.ht/~smlavine/err-devel>. If you've
+used err in your own project, I'd love to hear about it!
 
 For announcements related to the err project, see the mailing list at
 <https://lists.sr.ht/~smlavine/err-announce>.
