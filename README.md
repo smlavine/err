@@ -7,6 +7,8 @@ examples of its use, see that project.
 I can tell you for a fact this library works with C99, and I think it
 works with C89 too.
 
+These functions print exclusively to stderr.
+
 Some functions in this library are named the same as functions provided
 by libbsd's err.h. This library does **NOT** implement those functions,
 and might behave completely differently.

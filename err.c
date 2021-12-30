@@ -43,6 +43,8 @@ char *argv0;
  ***********************************************************************
  * If argv0 is not set by the caller, behavior is undefined.
  *
+ * These functions print exclusively to stderr.
+ *
  * Some functions in this file are named the same as functions
  * provided by libbsd's err.h. This file does NOT implement those
  * functions, and might behave completely differently.
