@@ -63,6 +63,8 @@ void
 vewarn(const char *fmt, va_list ap)
 {
 	vwarn(fmt, ap);
+	/* To avoid two colons being printed, like
+	 * "argv0: : No such file or directory" */
 	if (fmt != NULL && fmt[0] != '\0')
 		fputs(": ", stderr);
 	fprintf(stderr, "%s\n", strerror(errno));
