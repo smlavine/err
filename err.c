@@ -62,16 +62,10 @@ vwarn(const char *fmt, va_list ap)
 void
 vewarn(const char *fmt, va_list ap)
 {
-	/* strerror(3) must be called before anything else is done,
-	 * otherwise errno could be modified by function calls made
-	 * between when vewarn() was called and when output is printed.
-	 */
-	const char *errstr = strerror(errno);
-
 	vwarn(fmt, ap);
 	if (fmt != NULL && fmt[0] != '\0')
 		fputs(": ", stderr);
-	fprintf(stderr, "%s\n", errstr);
+	fprintf(stderr, "%s\n", strerror(errno));
 }
 
 void
