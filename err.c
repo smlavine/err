@@ -21,11 +21,16 @@
 
 #include "err.h"
 
+/**
+ * @brief Global value for the program's name.
+ * @details This must be set by the caller before using any err functions.
+ */
 char *argv0;
 
 /**
  * @brief Prints a formatted warning message to stderr.
  * @details Prints argv0, ": ", and the printf(3)-like-formatted error message.
+ * @pre argv0 is set
  * @param fmt format string
  * @param ap va_list of arguments for the format string
  */
@@ -39,6 +44,7 @@ vwarn(const char *fmt, va_list ap)
 /**
  * @brief Prints a formatted error message to stderr.
  * @details Calls vwarn(), then prints ": ", strerror(errno), and a newline.
+ * @pre argv0 is set
  * @param fmt format string
  * @param ap va_list of arguments for the format string
  */
@@ -60,6 +66,7 @@ vewarn(const char *fmt, va_list ap)
 /**
  * @brief Prints a formatted error message to stderr and exits.
  * @details Calls vewarn() and exits the program with the provided code.
+ * @pre argv0 is set
  * @param code exit code
  * @param fmt format string
  * @param ap va_list of arguments for the format string
@@ -75,6 +82,7 @@ verr(const int code, const char *fmt, va_list ap)
 /**
  * @brief Prints a formatted warning message to stderr.
  * @details Variadic wrapper for vwarn().
+ * @pre argv0 is set
  * @param fmt format string
  * @param ... arguments for the format string
  */
@@ -91,6 +99,7 @@ warn(const char *fmt, ...)
 /**
  * @brief Prints a formatted error message to stderr.
  * @details Variadic wrapper for vewarn().
+ * @pre argv0 is set
  * @param fmt format string
  * @param ... arguments for the format string
  */
@@ -107,6 +116,7 @@ ewarn(const char *fmt, ...)
 /**
  * @brief Prints a formatted error message to stderr and exits.
  * @details Variadic wrapper for verr().
+ * @pre argv0 is set
  * @param code exit code
  * @param fmt format string
  * @param ... arguments for the format string
