@@ -1,5 +1,5 @@
 /*
- * err - Small error-printing library
+ * err - Small error-printing library for C
  * Copyright (C) 2021 Sebastian LaVine <mail@smlavine.com>
  * SPDX-License-Identifier: MPL-2.0
  *
