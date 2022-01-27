@@ -8,6 +8,11 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+/**
+ * @file err.c
+ * @brief Small error-printing library for C
+ */
+
 #include <errno.h>
 #include <stdarg.h>
 #include <stdio.h>
