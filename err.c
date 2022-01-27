@@ -18,40 +18,12 @@
 
 char *argv0;
 
-/***********************************************************************
- * This file contains six error and warning functions:
- * vwarn(), vewarn(), and verr(), plus variadic wrappers for each.
- *
- ***********************************************************************
- * vwarn() prints argv0, ": ", and a message formatted from the given
- * format string and va_list.
- *
- * warn() is a variadic wrapper for vwarn().
- *
- ***********************************************************************
- * vewarn() calls vwarn(), then prints ": " if the format string is
- * neither NULL nor empty, then prints the value of strerror(errno) and
- * a newline.
- *
- * ewarn() is a variadic wrapper for vewarn().
- *
- ***********************************************************************
- * verr() calls vewarn() and exits the program with the provided code.
- *
- * err() is a variadic wrapper for verr().
- *
- ***********************************************************************
- * If argv0 is not set by the caller, behavior is undefined.
- *
- * These functions print exclusively to stderr.
- *
- * Some functions in this file are named the same as functions
- * provided by libbsd's err.h. This file does NOT implement those
- * functions, and might behave completely differently.
- *
- ***********************************************************************
+/**
+ * @brief Prints a formatted warning message to stderr
+ * @details Prints argv0, ": ", and the vprintf(3)-like-formatted error message
+ * @param fmt format string
+ * @param ap va_list of arguments for the format string
  */
-
 void
 vwarn(const char *fmt, va_list ap)
 {
@@ -59,6 +31,12 @@ vwarn(const char *fmt, va_list ap)
 	vfprintf(stderr, fmt, ap);
 }
 
+/**
+ * @brief Prints a formatted error message to stderr
+ * @details Calls vwarn(), then prints ": ", strerror(errno), and a newline
+ * @param fmt format string
+ * @param ap va_list of arguments for the format string
+ */
 void
 vewarn(const char *fmt, va_list ap)
 {
@@ -74,6 +52,13 @@ vewarn(const char *fmt, va_list ap)
 	fputc('\n', stderr);
 }
 
+/**
+ * @brief Prints a formatted error message to stderr and exits
+ * @details Calls vewarn() and exits the program with the provided code
+ * @param code exit code
+ * @param fmt format string
+ * @param ap va_list of arguments for the format string
+ */
 void
 verr(const int code, const char *fmt, va_list ap)
 {
@@ -82,6 +67,12 @@ verr(const int code, const char *fmt, va_list ap)
 	exit(code);
 }
 
+/**
+ * @brief Prints a formatted warning message to stderr
+ * @details Variadic wrapper for vwarn()
+ * @param fmt format string
+ * @param ... arguments for the format string
+ */
 void
 warn(const char *fmt, ...)
 {
@@ -92,6 +83,12 @@ warn(const char *fmt, ...)
 	va_end(ap);
 }
 
+/**
+ * @brief Prints a formatted error message to stderr
+ * @details Variadic wrapper for vewarn()
+ * @param fmt format string
+ * @param ... arguments for the format string
+ */
 void
 ewarn(const char *fmt, ...)
 {
@@ -102,6 +99,13 @@ ewarn(const char *fmt, ...)
 	va_end(ap);
 }
 
+/**
+ * @brief Prints a formatted error message to stderr and exits
+ * @details Variadic wrapper for verr()
+ * @param code exit code
+ * @param fmt format string
+ * @param ... arguments for the format string
+ */
 void
 err(const int code, const char *fmt, ...)
 {
