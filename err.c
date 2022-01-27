@@ -20,7 +20,7 @@ char *argv0;
 
 /**
  * @brief Prints a formatted warning message to stderr
- * @details Prints argv0, ": ", and the vprintf(3)-like-formatted error message
+ * @details Prints argv0, ": ", and the printf(3)-like-formatted error message
  * @param fmt format string
  * @param ap va_list of arguments for the format string
  */
