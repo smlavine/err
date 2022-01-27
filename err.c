@@ -19,8 +19,8 @@
 char *argv0;
 
 /**
- * @brief Prints a formatted warning message to stderr
- * @details Prints argv0, ": ", and the printf(3)-like-formatted error message
+ * @brief Prints a formatted warning message to stderr.
+ * @details Prints argv0, ": ", and the printf(3)-like-formatted error message.
  * @param fmt format string
  * @param ap va_list of arguments for the format string
  */
@@ -32,8 +32,8 @@ vwarn(const char *fmt, va_list ap)
 }
 
 /**
- * @brief Prints a formatted error message to stderr
- * @details Calls vwarn(), then prints ": ", strerror(errno), and a newline
+ * @brief Prints a formatted error message to stderr.
+ * @details Calls vwarn(), then prints ": ", strerror(errno), and a newline.
  * @param fmt format string
  * @param ap va_list of arguments for the format string
  */
@@ -53,8 +53,8 @@ vewarn(const char *fmt, va_list ap)
 }
 
 /**
- * @brief Prints a formatted error message to stderr and exits
- * @details Calls vewarn() and exits the program with the provided code
+ * @brief Prints a formatted error message to stderr and exits.
+ * @details Calls vewarn() and exits the program with the provided code.
  * @param code exit code
  * @param fmt format string
  * @param ap va_list of arguments for the format string
@@ -68,8 +68,8 @@ verr(const int code, const char *fmt, va_list ap)
 }
 
 /**
- * @brief Prints a formatted warning message to stderr
- * @details Variadic wrapper for vwarn()
+ * @brief Prints a formatted warning message to stderr.
+ * @details Variadic wrapper for vwarn().
  * @param fmt format string
  * @param ... arguments for the format string
  */
@@ -84,8 +84,8 @@ warn(const char *fmt, ...)
 }
 
 /**
- * @brief Prints a formatted error message to stderr
- * @details Variadic wrapper for vewarn()
+ * @brief Prints a formatted error message to stderr.
+ * @details Variadic wrapper for vewarn().
  * @param fmt format string
  * @param ... arguments for the format string
  */
@@ -100,8 +100,8 @@ ewarn(const char *fmt, ...)
 }
 
 /**
- * @brief Prints a formatted error message to stderr and exits
- * @details Variadic wrapper for verr()
+ * @brief Prints a formatted error message to stderr and exits.
+ * @details Variadic wrapper for verr().
  * @param code exit code
  * @param fmt format string
  * @param ... arguments for the format string
