@@ -10,7 +10,8 @@
 
 /**
  * @file err.h
- * @brief Small error-printing library for C (header)
+ * @brief Header file
+ * @details #include this to use err in your project.
  */
 
 #include <stdarg.h>

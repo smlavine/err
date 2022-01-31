@@ -10,7 +10,9 @@
 
 /**
  * @file err.c
- * @brief Small error-printing library for C
+ * @brief Main source code file
+ * @details This file contains definitions and declarations of globally
+ * available functions and variables.
  */
 
 #include <errno.h>
