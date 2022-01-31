@@ -9,9 +9,9 @@ works with C89 too.
 
 These functions print exclusively to stderr.
 
-Some functions in this library are named the same as functions provided
-by [BSD's err.h][freebsd-err.h]. This library does **NOT** implement
-those functions, and might behave completely differently.
+The BSDes provide similar functionality in their standard library with a
+[file of the same name][freebsd-err.h]. This library does *not*
+implement that interface, and might behave completely differently.
 
 [freebsd-err.h]: https://www.freebsd.org/cgi/man.cgi?query=err
 
