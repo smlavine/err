@@ -13,7 +13,7 @@ Some functions in this library are named the same as functions provided
 by [BSD's err.h][freebsd-err.h]. This library does **NOT** implement
 those functions, and might behave completely differently.
 
-[freebsd-err.h]: https://cgit.freebsd.org/src/tree/include/err.h
+[freebsd-err.h]: https://www.freebsd.org/cgi/man.cgi?query=err
 
 # Using err
 
