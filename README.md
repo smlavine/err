@@ -4,8 +4,7 @@ err is a small error-printing library for C programs. It was initially
 written as part of [navipage](https://sr.ht/~smlavine/navipage). For
 examples of its use, see that project.
 
-I can tell you for a fact this library works with C99, and I think it
-works with C89 too.
+err can be used in projects written in any major version of C or C++.
 
 These functions print exclusively to stderr.
 
