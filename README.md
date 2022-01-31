@@ -10,8 +10,10 @@ works with C89 too.
 These functions print exclusively to stderr.
 
 Some functions in this library are named the same as functions provided
-by libbsd's err.h. This library does **NOT** implement those functions,
-and might behave completely differently.
+by [BSD's err.h][freebsd-err.h]. This library does **NOT** implement
+those functions, and might behave completely differently.
+
+[freebsd-err.h]: https://cgit.freebsd.org/src/tree/include/err.h
 
 # Using err
 
