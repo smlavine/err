@@ -56,5 +56,5 @@ For patches and discussion related to the project, see the mailing list
 at <https://lists.sr.ht/~smlavine/public-inbox>. If you've used err in
 your own project, I'd love to hear about it!
 
-For announcements related to the err project, see the mailing list at
+For announcements related to the project, see the mailing list at
 <https://lists.sr.ht/~smlavine/err-announce>.
