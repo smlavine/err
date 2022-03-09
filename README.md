@@ -39,7 +39,7 @@ See the comments in err.c for much the same information.
 
 # Copyright
 
-Copyright (C) 2021 Sebastian LaVine <mail@smlavine.com>
+Copyright (C) 2021-2022 Sebastian LaVine <mail@smlavine.com>
 
 err is published and made available under the terms of version 2.0 of
 the Mozilla Public License. A copy of the MPL-2.0 is distributed with

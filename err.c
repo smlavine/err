@@ -1,6 +1,6 @@
 /*
  * err - Small error-printing library for C
- * Copyright (C) 2021 Sebastian LaVine <mail@smlavine.com>
+ * Copyright (C) 2021-2022 Sebastian LaVine <mail@smlavine.com>
  * SPDX-License-Identifier: MPL-2.0
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
