@@ -16,14 +16,58 @@
 
 #include <stdarg.h>
 
+/**
+ * @brief Global value for the program's name.
+ * @details This must be set by the caller before using any err functions.
+ */
 extern char *argv0;
 
-/* These functions are declared in the order they are called by each other. */
-
+/**
+ * @brief Prints a formatted warning message to stderr.
+ * @pre argv0 is set
+ * @param fmt format string
+ * @param ap va_list of arguments for the format string
+ */
 void vwarn(const char *, va_list);
+
+/**
+ * @brief Prints a formatted error message to stderr.
+ * @pre argv0 is set
+ * @param fmt format string
+ * @param ap va_list of arguments for the format string
+ */
 void vewarn(const char *, va_list);
+
+/**
+ * @brief Prints a formatted error message to stderr and exits.
+ * @pre argv0 is set
+ * @param code exit code
+ * @param fmt format string
+ * @param ap va_list of arguments for the format string
+ */
 void verr(const int, const char *, va_list);
 
+/**
+ * @brief Prints a formatted warning message to stderr.
+ * @pre argv0 is set
+ * @param fmt format string
+ * @param ... arguments for the format string
+ */
 void warn(const char *, ...);
+
+/**
+ * @brief Prints a formatted error message to stderr.
+ * @pre argv0 is set
+ * @param fmt format string
+ * @param ... arguments for the format string
+ */
 void ewarn(const char *, ...);
+
+/**
+ * @brief Prints a formatted error message to stderr and exits.
+ * @pre argv0 is set
+ * @param code exit code
+ * @param fmt format string
+ * @param ... arguments for the format string
+ */
 void err(const int, const char *, ...);
