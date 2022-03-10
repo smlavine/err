@@ -18,7 +18,7 @@
 
 /**
  * @brief Global value for the program's name.
- * @details This must be set by the caller before using any err functions.
+ * @details This must be set before any err functions are called.
  */
 extern char *argv0;
 
