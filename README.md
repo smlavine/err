@@ -18,8 +18,7 @@ implement that interface, and might behave completely differently.
 
 - Copy err.c and err.h into your project.
 - ```#include "err.h"``` in files where you want to use err functions.
-- Assign a value to ```argv0``` before calling any err functions, or
-  suffer the wrath of undefined behavior.
+- Assign a value to ```argv0``` before calling any err functions.
 - Call functions from err as you see fit!
 
 # Functions provided by err
