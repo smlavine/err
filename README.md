@@ -21,20 +21,16 @@ implement that interface, and might behave completely differently.
 - Assign a value to ```argv0``` before calling any err functions.
 - Call functions from err as you see fit!
 
-# Functions provided by err
+## Documentation
 
-- __vwarn(char *, va_list)__ prints argv0, ": ", and a message
-  formatted from the given format string and va_list.
-  - __warn(char *, ...)__ is a variadic wrapper for vwarn().
-- __vewarn(char *, va_list)__ calls vwarn(), then prints ": " if
-  the format string is neither NULL nor empty, then prints the value of
-  strerror(errno) and a newline.
-  - __ewarn(char *, ...)__ is a variadic wrapper for vewarn().
-- __verr(int, char *, va_list)__ calls vewarn() and exits the program
-  with the provided code.
-  - __err(int, char *, ...)__ is a variadic wrapper for verr().
+err uses Doxygen to generate documentation. To compile the documentation
+into a readable form, run ```doxygen```. The generated files will be put
+into the ```docs/``` directory.
 
-See the comments in err.c for much the same information.
+Documentation is compiled to HTML and manpage formats.
+The HTML documentation will be made available in an online form soon™.
+
+The source code comments can also be read directly.
 
 # Copyright
 
