@@ -10,6 +10,7 @@
 
 /**
  * @file err.c
+ * @version 1.1.0
  * @brief Main source code file
  * @details This file contains definitions and declarations of globally
  * available functions and variables.
