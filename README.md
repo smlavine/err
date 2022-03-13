@@ -32,6 +32,10 @@ The HTML documentation will be made available in an online form soon™.
 
 The source code comments can also be read directly.
 
+See the [examples/][examples] directory for example programs.
+
+[examples]: https://git.sr.ht/~smlavine/err/tree/master/item/examples/
+
 # Copyright
 
 Copyright (C) 2021-2022 Sebastian LaVine <mail@smlavine.com>
