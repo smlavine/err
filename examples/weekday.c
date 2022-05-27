@@ -19,7 +19,7 @@ main(int argc, char *argv[])
 	int year, month, day;
 	char linebuf[64];
 
-	argv0 = argv[0];
+	program_invocation_name = argv[0];
 
 	if (argc != 2) {
 		usage();

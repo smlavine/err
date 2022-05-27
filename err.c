@@ -10,7 +10,7 @@
 
 /**
  * @file err.c
- * @version 1.1.0
+ * @version 2.0.0-pre
  * @brief Main source code file
  * @details This file contains definitions and declarations of globally
  * available functions and variables.
@@ -24,15 +24,20 @@
 
 #include "err.h"
 
-char *argv0;
+/* With glibc and perhaps some other environments, this variable is
+ * declared in errno.h. But as it doesn't seem to cause any issues
+ * compiling, We declare it again here without a preprocessor guard for
+ * maximum portability. */
+char *program_invocation_name;
 
 /**
- * @details Prints argv0, ": ", and the printf(3)-like-formatted error message.
+ * @details Prints program_invocation_name, ": ", and the
+ * printf(3)-like-formatted error message.
  */
 void
 vwarn(const char *fmt, va_list ap)
 {
-	fprintf(stderr, "%s: ", argv0);
+	fprintf(stderr, "%s: ", program_invocation_name);
 	vfprintf(stderr, fmt, ap);
 }
 
@@ -45,7 +50,7 @@ vewarn(const char *fmt, va_list ap)
 	vwarn(fmt, ap);
 	if (errno != 0) {
 		/* To avoid two colons being printed, like
-		 * "argv0: : No such file or directory" */
+		 * "program_invocation_name: : No such file or directory" */
 		if (fmt != NULL && fmt[0] != '\0') {
 			fputs(": ", stderr);
 		}

@@ -8,7 +8,7 @@ main(int argc, char *argv[])
 {
 	int i;
 
-	argv0 = argv[0];
+	program_invocation_name = argv[0];
 
 	if (argc < 2)
 		err(EXIT_FAILURE, "no files provided");

@@ -10,7 +10,7 @@
 
 /**
  * @file err.h
- * @version 1.1.0
+ * @version 2.0.0-pre
  * @brief Header file
  * @details #include this to use err in your project.
  */
@@ -21,11 +21,11 @@
  * @brief Global value for the program's name.
  * @details This must be set before any err functions are called.
  */
-extern char *argv0;
+extern char *program_invocation_name;
 
 /**
  * @brief Prints a formatted warning message to stderr.
- * @pre argv0 is set
+ * @pre program_invocation_name is set
  * @param fmt format string
  * @param ap va_list of arguments for the format string
  */
@@ -33,7 +33,7 @@ void vwarn(const char *, va_list);
 
 /**
  * @brief Prints a formatted error message to stderr.
- * @pre argv0 is set
+ * @pre program_invocation_name is set
  * @param fmt format string
  * @param ap va_list of arguments for the format string
  */
@@ -41,7 +41,7 @@ void vewarn(const char *, va_list);
 
 /**
  * @brief Prints a formatted error message to stderr and exits.
- * @pre argv0 is set
+ * @pre program_invocation_name is set
  * @param code exit code
  * @param fmt format string
  * @param ap va_list of arguments for the format string
@@ -50,7 +50,7 @@ void verr(const int, const char *, va_list);
 
 /**
  * @brief Prints a formatted warning message to stderr.
- * @pre argv0 is set
+ * @pre program_invocation_name is set
  * @param fmt format string
  * @param ... arguments for the format string
  */
@@ -58,7 +58,7 @@ void warn(const char *, ...);
 
 /**
  * @brief Prints a formatted error message to stderr.
- * @pre argv0 is set
+ * @pre program_invocation_name is set
  * @param fmt format string
  * @param ... arguments for the format string
  */
@@ -66,7 +66,7 @@ void ewarn(const char *, ...);
 
 /**
  * @brief Prints a formatted error message to stderr and exits.
- * @pre argv0 is set
+ * @pre program_invocation_name is set
  * @param code exit code
  * @param fmt format string
  * @param ... arguments for the format string
