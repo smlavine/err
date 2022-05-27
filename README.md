@@ -17,15 +17,15 @@ implement that interface, and might behave completely differently.
 # Using err
 
 - Copy err.c and err.h into your project.
-- ```#include "err.h"``` in files where you want to use err functions.
-- Assign a value to ```argv0``` before calling any err functions.
+- `#include "err.h"` in files where you want to use err functions.
+- Assign a value to `argv0` before calling any err functions.
 - Call functions from err as you see fit!
 
 ## Documentation
 
 err uses Doxygen to generate documentation. To compile the documentation
-into a readable form, run ```doxygen```. The generated files will be put
-into the ```docs/``` directory.
+into a readable form, run `doxygen`. The generated files will be put
+into the `docs/` directory.
 
 Documentation is compiled to HTML and manpage formats.
 The HTML documentation will be made available in an online form soon™.
