@@ -43,17 +43,3 @@ Copyright (C) 2021-2022 Sebastian LaVine <mail@smlavine.com>
 Licensed under the MPLv2. See [LICENSE][license].
 
 [license]: https://git.sr.ht/~smlavine/err/tree/master/item/LICENSE
-
----
-
-This project is hosted at <https://sr.ht/~smlavine/err>.
-
-To browse the source code repository, see
-<https://git.sr.ht/~smlavine/err>.
-
-For patches and discussion related to the project, see the mailing list
-at <https://lists.sr.ht/~smlavine/public-inbox>. If you've used err in
-your own project, I'd love to hear about it!
-
-For announcements related to the project, see the mailing list at
-<https://lists.sr.ht/~smlavine/err-announce>.
