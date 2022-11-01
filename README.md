@@ -1,4 +1,4 @@
-# err - Small error-printing library for C
+# [err](https://sr.ht/~smlavine/err)
 
 err is a small error-printing library for C programs. It was initially
 written as part of [navipage](https://sr.ht/~smlavine/navipage). For
