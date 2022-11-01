@@ -40,9 +40,9 @@ See the [examples/][examples] directory for example programs.
 
 Copyright (C) 2021-2022 Sebastian LaVine <mail@smlavine.com>
 
-err is published and made available under the terms of version 2.0 of
-the Mozilla Public License. A copy of the MPL-2.0 is distributed with
-err; alternatively you can obtain one at <http://mozilla.org/MPL/2.0/>.
+Licensed under the MPLv2. See [LICENSE][license].
+
+[license]: https://git.sr.ht/~smlavine/err/tree/master/item/LICENSE
 
 ---
 
