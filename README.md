@@ -6,7 +6,7 @@ err can be used in projects written in any major version of C or C++.
 
 These functions print exclusively to stderr.
 
-The BSDes provide similar functionality in their standard library with a
+The BSDs provide similar functionality in their standard library with a
 [file of the same name][freebsd-err.h]. This library does *not*
 implement that interface, and might behave completely differently.
 
