@@ -1,10 +1,9 @@
 # [err](https://sr.ht/~smlavine/err)
 
-err is a small error-printing library for C programs.
+err is a small error-printing library. It can be used by projects
+written in any major version of C or C++.
 
 err can be used in projects written in any major version of C or C++.
-
-These functions print exclusively to stderr.
 
 The BSDs provide similar functionality in their standard library with a
 [file of the same name][freebsd-err.h]. This library does *not*
