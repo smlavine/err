@@ -1,8 +1,6 @@
 # [err](https://sr.ht/~smlavine/err)
 
-err is a small error-printing library for C programs. It was initially
-written as part of [navipage](https://sr.ht/~smlavine/navipage). For
-examples of its use, see that project.
+err is a small error-printing library for C programs.
 
 err can be used in projects written in any major version of C or C++.
 
