@@ -30,19 +30,19 @@ main(int argc, char *argv[])
 	 * the output of err(). */
 
 	if ((temp = strtok(argv[1], "-")) == NULL)
-		err(EXIT_FAILURE, "bad date: no year");
+		err("bad date: no year");
 	else if ((year = atoi(temp)) == 0)
-		err(EXIT_FAILURE, "bad date: invalid year");
+		err("bad date: invalid year");
 
 	if ((temp = strtok(NULL, "-")) == NULL)
-		err(EXIT_FAILURE, "bad date: no month");
+		err("bad date: no month");
 	else if ((month = atoi(temp)) == 0)
-		err(EXIT_FAILURE, "bad date: invalid month");
+		err("bad date: invalid month");
 
 	if ((temp = strtok(NULL, "-")) == NULL)
-		err(EXIT_FAILURE, "bad date: no day");
+		err("bad date: no day");
 	else if ((day = atoi(temp)) == 0)
-		err(EXIT_FAILURE, "bad date: invalid day");
+		err("bad date: invalid day");
 
 	/* See ctime(3) */
 	tm.tm_year = year - 1900;
@@ -50,7 +50,7 @@ main(int argc, char *argv[])
 	tm.tm_mday = day;
 
 	if (mktime(&tm) == (time_t)-1)
-		err(EXIT_FAILURE, "mktime failed");
+		err("mktime failed");
 
 	strftime(linebuf, sizeof(linebuf), "%Y-%m-%d: %A", &tm);
 	puts(linebuf);

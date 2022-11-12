@@ -11,7 +11,7 @@ main(int argc, char *argv[])
 	program_invocation_name = argv[0];
 
 	if (argc < 2)
-		err(EXIT_FAILURE, "no files provided");
+		err("no files provided");
 
 	for (i = 1; i < argc; i++) {
 		FILE *fp;

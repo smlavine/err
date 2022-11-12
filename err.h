@@ -42,11 +42,20 @@ void vewarn(const char *, va_list);
 /**
  * @brief Prints a formatted error message to stderr and exits.
  * @pre program_invocation_name is set
+ * @param fmt format string
+ * @param ap va_list of arguments for the format string
+ */
+void verr(const char *, va_list);
+
+/**
+ * @brief Prints a formatted error message to stderr and exits with the given
+ * exit code.
+ * @pre program_invocation_name is set
  * @param code exit code
  * @param fmt format string
  * @param ap va_list of arguments for the format string
  */
-void verr(const int, const char *, va_list);
+void verrc(const int, const char *, va_list);
 
 /**
  * @brief Prints a formatted warning message to stderr.
@@ -67,8 +76,17 @@ void ewarn(const char *, ...);
 /**
  * @brief Prints a formatted error message to stderr and exits.
  * @pre program_invocation_name is set
+ * @param fmt format string
+ * @param ... arguments for the format string
+ */
+void err(const char *, ...);
+
+/**
+ * @brief Prints a formatted error message to stderr and exits with the given
+ * exit code.
+ * @pre program_invocation_name is set
  * @param code exit code
  * @param fmt format string
  * @param ... arguments for the format string
  */
-void err(const int, const char *, ...);
+void errc(const int, const char *, ...);

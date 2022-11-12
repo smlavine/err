@@ -11,7 +11,7 @@ main(int argc, char *argv[])
 	program_invocation_name = argv[0];
 
 	if (argc > 2)
-		err(EXIT_FAILURE, "multiple arguments provided");
+		errc(argc, "multiple arguments provided");
 	else if (argc == 1) {
 		warn("no argument provided, using default word\n");
 		word = "world";

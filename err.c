@@ -22,8 +22,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "err.h"
-
 /* With glibc and perhaps some other environments, this variable is
  * declared in errno.h. But as it doesn't seem to cause any issues
  * compiling, We declare it again here without a preprocessor guard for
@@ -63,11 +61,20 @@ vewarn(const char *fmt, va_list ap)
  * @details Calls vewarn() and exits the program with the provided code.
  */
 void
-verr(const int code, const char *fmt, va_list ap)
+verrc(const int code, const char *fmt, va_list ap)
 {
 	vewarn(fmt, ap);
 
 	exit(code);
+}
+
+/**
+ * @details Calls verrc() with EXIT_FAILURE.
+ */
+void
+verr(const char *fmt, va_list ap)
+{
+	verrc(EXIT_FAILURE, fmt, ap);
 }
 
 /**
@@ -97,14 +104,27 @@ ewarn(const char *fmt, ...)
 }
 
 /**
+ * @details Variadic wrapper for verrc().
+ */
+void
+errc(const int code, const char *fmt, ...)
+{
+	va_list ap;
+
+	va_start(ap, fmt);
+	verrc(code, fmt, ap);
+	va_end(ap);
+}
+
+/**
  * @details Variadic wrapper for verr().
  */
 void
-err(const int code, const char *fmt, ...)
+err(const char *fmt, ...)
 {
 	va_list ap;
-	
+
 	va_start(ap, fmt);
-	verr(code, fmt, ap);
+	verr(fmt, ap);
 	va_end(ap);
 }
