@@ -3,7 +3,7 @@
 err is a small error-printing library. It can be used by projects
 written in any major version of C or C++.
 
-err can be used in projects written in any major version of C or C++.
+**Online documentation can be found here**: <https://err.smlavine.com>
 
 The BSDs provide similar functionality in their standard library with a
 [file of the same name][freebsd-err.h]. This library does *not*
@@ -25,7 +25,6 @@ into a readable form, run `doxygen`. The generated files will be put
 into the `docs/` directory.
 
 Documentation is compiled to HTML and manpage formats.
-The HTML documentation will be made available in an online form soon™.
 
 The source code comments can also be read directly.
 
