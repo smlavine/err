@@ -19,5 +19,5 @@ tasks:
   - deploy: |
       cd err
       doxygen
-      tar -C docs/html -cvz . > site.tar.gz
+      tar -C site -cvz . > site.tar.gz
       hut pages publish -d err.smlavine.com site.tar.gz
