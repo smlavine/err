@@ -1,3 +1,17 @@
+/**
+ * @example
+ * This example demonstrates when and how the ewarn() function is used.
+ *
+ * err() is called when a fatal error occurs. ewarn() is called when a nonfatal
+ * error occurs.
+ *
+ * Compare this example with hello.c, which demonstrates warn(). In hello.c,
+ * warn() is called after an unusual but managable situation with the program
+ * arguments is found. In this example, ewarn() is called after a necessary
+ * library function fails. We will get a more detailed error message with
+ * ewarn() because it looks at errno when writing its message.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 

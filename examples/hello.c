@@ -1,3 +1,12 @@
+/**
+ * @example
+ * This example is an introduction to using the library.
+ *
+ * Note the different situations in which the two functions are called. errc()
+ * is called when the program encounters a state that it doesn't know how to
+ * handle. warn() is called when an unusual but managable condition is found.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 

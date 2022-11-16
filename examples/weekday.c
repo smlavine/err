@@ -1,3 +1,9 @@
+/**
+ * @example
+ * This example demonstrates how the library makes it easy to concisely express
+ * repetitive errors.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
