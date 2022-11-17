@@ -3,24 +3,15 @@
 err is a small error-printing library. It can be used by projects
 written in any major version of C or C++.
 
-The BSDs provide similar functionality in their standard library with a
-[file of the same name][freebsd-err.h]. This library does *not*
-implement that interface, and might behave completely differently.
-
-[freebsd-err.h]: https://www.freebsd.org/cgi/man.cgi?query=err
+See [the website](https://err.smlavine.com) for API documentation and
+examples.
 
 # Using err
-
-**Online documentation can be found here**: <https://err.smlavine.com>
 
 - Copy err.c and err.h into your project.
 - `#include "err.h"` in files where you want to use err functions.
 - Assign a value to `program_invocation_name` before calling any err functions.
 - Call functions from err as you see fit!
-
-See the [examples/][examples] directory for example programs.
-
-[examples]: https://git.sr.ht/~smlavine/err/tree/master/item/examples/
 
 ## Generating documentation
 
