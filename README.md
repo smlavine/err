@@ -1,6 +1,4 @@
-![err :)](logo.jpg)
-
-# [err](https://sr.ht/~smlavine/err)
+[![err :)](logo.jpg)](https://sr.ht/~smlavine/err)
 
 err is a small error-printing library. It can be used by projects
 written in any major version of C or C++.
