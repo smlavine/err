@@ -1,5 +1,5 @@
 /**
- * @example
+ * @example files.c
  * This example demonstrates when and how the ewarn() function is used.
  *
  * err() is called when a fatal error occurs. ewarn() is called when a nonfatal

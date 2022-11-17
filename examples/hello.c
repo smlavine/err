@@ -1,5 +1,5 @@
 /**
- * @example
+ * @example hello.c
  * This example is an introduction to using the library.
  *
  * Note the different situations in which the two functions are called. errc()

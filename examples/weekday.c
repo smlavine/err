@@ -1,5 +1,5 @@
 /**
- * @example
+ * @example weekday.c
  * This example demonstrates how the library makes it easy to concisely express
  * repetitive errors.
  */
