@@ -16,10 +16,8 @@ examples.
 ## Generating documentation
 
 err uses Doxygen to generate documentation. To compile the documentation
-into a readable form, run `doxygen`. The generated files will be put
+into HTML, run `doxygen`. The generated files will be put
 into the `site/` directory.
-
-Documentation is compiled to HTML and manpage formats.
 
 # Copyright
 
