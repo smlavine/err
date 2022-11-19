@@ -8,10 +8,22 @@ examples.
 
 # Using err
 
-- Copy err.c and err.h into your project.
-- `#include "err.h"` in files where you want to use err functions.
-- Assign a value to `program_invocation_name` before calling any err functions.
-- Call functions from err as you see fit!
+The easiest way to use err is to copy err.c and err.h into your project.
+You can download the latest version of err from
+
+- <https://git.sr.ht/~smlavine/err/blob/1.1.1/err.c>
+- <https://git.sr.ht/~smlavine/err/blob/1.1.1/err.h>
+
+Alternatively, you may wish to import err as a git subtree:
+
+```
+git subtree --squash -P err/ add https://git.sr.ht/~smlavine/err 1.1.1
+```
+
+`#include "err.h"` in files where you want to use err functions.
+
+Be sure to assign a value to `program_invocation_name` before calling
+any err functions.
 
 ## Generating documentation
 
