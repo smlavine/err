@@ -10,7 +10,7 @@
 
 /**
  * @file err.h
- * @version 2.0.0-pre
+ * @version 2.0.0
  * @brief Header file
  * @details #include this to use err in your project.
  */
