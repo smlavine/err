@@ -15,6 +15,9 @@
  * @details #include this to use err in your project.
  */
 
+#ifndef ERR_ERR_H
+#define ERR_ERR_H
+
 #include <stdarg.h>
 
 /**
@@ -90,3 +93,5 @@ void err(const char *, ...);
  * @param ... arguments for the format string
  */
 void errc(const int, const char *, ...);
+
+#endif
