@@ -10,7 +10,7 @@
 
 /**
  * @file err.h
- * @version 2.0.0
+ * @version 2.1.0-pre
  * @brief Header file
  * @details #include this to use err in your project.
  */
@@ -27,12 +27,31 @@
 extern char *program_invocation_name;
 
 /**
+ * @brief Interface for using custom error messages with err.
+ * @details See vewarnl().
+ */
+struct err_configuration {
+	const char *(*strerror)(void);
+	int (*error_exists)(void);
+};
+
+/**
  * @brief Prints a formatted warning message to stderr.
  * @pre program_invocation_name is set
  * @param fmt format string
  * @param ap va_list of arguments for the format string
  */
 void vwarn(const char *, va_list);
+
+/**
+ * @brief Prints a formatted error message to stderr. Uses a custom
+ * err_configuration.
+ * @pre program_invocation_name is set
+ * @param e configuration specifying source of error message
+ * @param fmt format string
+ * @param ap va_list of arguments for the format string
+ */
+void vewarnl(const struct err_configuration *, const char *, va_list);
 
 /**
  * @brief Prints a formatted error message to stderr.
@@ -43,12 +62,15 @@ void vwarn(const char *, va_list);
 void vewarn(const char *, va_list);
 
 /**
- * @brief Prints a formatted error message to stderr and exits.
+ * @brief Prints a formatted error message to stderr and exits with the given
+ * exit code. Uses a custom err_configuration.
  * @pre program_invocation_name is set
+ * @param e configuration specifying source of error message
+ * @param code exit code
  * @param fmt format string
  * @param ap va_list of arguments for the format string
  */
-void verr(const char *, va_list);
+void verrcl(const struct err_configuration *, const int, const char *, va_list);
 
 /**
  * @brief Prints a formatted error message to stderr and exits with the given
@@ -61,12 +83,40 @@ void verr(const char *, va_list);
 void verrc(const int, const char *, va_list);
 
 /**
+ * @brief Prints a formatted error message to stderr and exits. Uses a custom
+ * err_configuration.
+ * @pre program_invocation_name is set
+ * @param e configuration specifying source of error message
+ * @param fmt format string
+ * @param ap va_list of arguments for the format string
+ */
+void verrl(const struct err_configuration *, const char *, va_list);
+
+/**
+ * @brief Prints a formatted error message to stderr and exits.
+ * @pre program_invocation_name is set
+ * @param fmt format string
+ * @param ap va_list of arguments for the format string
+ */
+void verr(const char *, va_list);
+
+/**
  * @brief Prints a formatted warning message to stderr.
  * @pre program_invocation_name is set
  * @param fmt format string
  * @param ... arguments for the format string
  */
 void warn(const char *, ...);
+
+/**
+ * @brief Prints a formatted error message to stderr. Uses a custom
+ * err_configuration.
+ * @pre program_invocation_name is set
+ * @param e configuration specifying source of error message
+ * @param fmt format string
+ * @param ... arguments for the format string
+ */
+void ewarnl(const struct err_configuration *, const char *, ...);
 
 /**
  * @brief Prints a formatted error message to stderr.
@@ -77,12 +127,15 @@ void warn(const char *, ...);
 void ewarn(const char *, ...);
 
 /**
- * @brief Prints a formatted error message to stderr and exits.
+ * @brief Prints a formatted error message to stderr and exits with the given
+ * exit code. Uses a custom err_configuration.
  * @pre program_invocation_name is set
+ * @param code exit code
+ * @param e configuration specifying source of error message
  * @param fmt format string
  * @param ... arguments for the format string
  */
-void err(const char *, ...);
+void errcl(const struct err_configuration *, const int, const char *, ...);
 
 /**
  * @brief Prints a formatted error message to stderr and exits with the given
@@ -93,5 +146,23 @@ void err(const char *, ...);
  * @param ... arguments for the format string
  */
 void errc(const int, const char *, ...);
+
+/**
+ * @brief Prints a formatted error message to stderr and exits. Uses a custom
+ * err_configuration.
+ * @pre program_invocation_name is set
+ * @param e configuration specifying source of error message
+ * @param fmt format string
+ * @param ... arguments for the format string
+ */
+void errl(const struct err_configuration *, const char *, ...);
+
+/**
+ * @brief Prints a formatted error message to stderr and exits.
+ * @pre program_invocation_name is set
+ * @param fmt format string
+ * @param ... arguments for the format string
+ */
+void err(const char *, ...);
 
 #endif

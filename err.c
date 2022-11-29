@@ -10,7 +10,7 @@
 
 /**
  * @file err.c
- * @version 2.0.0
+ * @version 2.1.0-pre
  * @brief Main source code file
  * @details This file contains definitions and declarations of globally
  * available functions and variables.
@@ -29,6 +29,33 @@
 char *program_invocation_name;
 
 /**
+ * This definition is copied from err.h. We don't include err.h in err.c
+ * because we don't want err.c to be dependent on err.h being in a
+ * particular location.
+ */
+struct err_configuration {
+	const char *(*strerror)(void);
+	int (*error_exists)(void);
+};
+
+static const char *
+err_stdlib_strerror(void)
+{
+	return strerror(errno);
+}
+
+static int
+err_stdlib_error_exists(void)
+{
+	return (errno != 0);
+}
+
+static const struct err_configuration stdlib_configuration = {
+	&err_stdlib_strerror,
+	&err_stdlib_error_exists,
+};
+
+/**
  * @details Prints program_invocation_name, ": ", and the
  * printf(3)-like-formatted error message.
  */
@@ -40,21 +67,42 @@ vwarn(const char *fmt, va_list ap)
 }
 
 /**
- * @details Calls vwarn(), then prints ": ", strerror(errno), and a newline.
+ * @details First calls vwarn(), and then if e->error_exists() is true, prints
+ * ": ", the message given by e, and a newline.
  */
 void
-vewarn(const char *fmt, va_list ap)
+vewarnl(const struct err_configuration *e, const char *fmt, va_list ap)
 {
 	vwarn(fmt, ap);
-	if (errno != 0) {
+	if (e->error_exists()) {
 		/* To avoid two colons being printed, like
 		 * "program_invocation_name: : No such file or directory" */
 		if (fmt != NULL && fmt[0] != '\0') {
 			fputs(": ", stderr);
 		}
-		fprintf(stderr, "%s", strerror(errno));
+		fprintf(stderr, "%s", e->strerror());
 	}
 	fputc('\n', stderr);
+}
+
+/**
+ * @details Calls vwarn(), then prints ": ", strerror(errno), and a newline.
+ */
+void
+vewarn(const char *fmt, va_list ap)
+{
+	vewarnl(&stdlib_configuration, fmt, ap);
+}
+
+/**
+ * @details Calls vewarnl() and exits the program with the provided code.
+ */
+void
+verrcl(const struct err_configuration *e, const int code, const char *fmt, va_list ap)
+{
+	vewarnl(e, fmt, ap);
+
+	exit(code);
 }
 
 /**
@@ -66,6 +114,15 @@ verrc(const int code, const char *fmt, va_list ap)
 	vewarn(fmt, ap);
 
 	exit(code);
+}
+
+/**
+ * @details Calls verrcl() with EXIT_FAILURE.
+ */
+void
+verrl(const struct err_configuration *e, const char *fmt, va_list ap)
+{
+	verrcl(e, EXIT_FAILURE, fmt, ap);
 }
 
 /**
@@ -91,6 +148,19 @@ warn(const char *fmt, ...)
 }
 
 /**
+ * @details Variadic wrapper for vewarnl().
+ */
+void
+ewarnl(const struct err_configuration *e, const char *fmt, ...)
+{
+	va_list ap;
+
+	va_start(ap, fmt);
+	vewarnl(e, fmt, ap);
+	va_end(ap);
+}
+
+/**
  * @details Variadic wrapper for vewarn().
  */
 void
@@ -104,6 +174,19 @@ ewarn(const char *fmt, ...)
 }
 
 /**
+ * @details Variadic wrapper for verrcl().
+ */
+void
+errcl(const struct err_configuration *e, const int code, const char *fmt, ...)
+{
+	va_list ap;
+
+	va_start(ap, fmt);
+	verrcl(e, code, fmt, ap);
+	va_end(ap);
+}
+
+/**
  * @details Variadic wrapper for verrc().
  */
 void
@@ -113,6 +196,19 @@ errc(const int code, const char *fmt, ...)
 
 	va_start(ap, fmt);
 	verrc(code, fmt, ap);
+	va_end(ap);
+}
+
+/**
+ * @details Variadic wrapper for verrl().
+ */
+void
+errl(const struct err_configuration *e, const char *fmt, ...)
+{
+	va_list ap;
+
+	va_start(ap, fmt);
+	verrl(e, fmt, ap);
 	va_end(ap);
 }
 

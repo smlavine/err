@@ -14,7 +14,7 @@ LDFLAGS = -L$(PREFIX)/lib $(LIBS)
 CC = cc
 
 
-examples = files hello weekday
+examples = files hello sdl weekday
 
 all: $(examples)
 
@@ -30,6 +30,9 @@ files: files.c ../err.c
 
 hello: hello.c ../err.c
 	$(CC) -o $@ $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) $?
+
+sdl: sdl.c ../err.c
+	$(CC) -o $@ $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) `sdl2-config --cflags --libs` $?
 
 weekday: weekday.c ../err.c
 	$(CC) -o $@ $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) $?
