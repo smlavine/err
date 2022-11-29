@@ -6,6 +6,7 @@ triggers:
 packages:
   - doxygen
   - hut
+  - sdl2-dev
 sources:
   - https://git.sr.ht/~smlavine/err
 environment:
