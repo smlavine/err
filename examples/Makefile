@@ -1,22 +1,14 @@
-# paths
-PREFIX = /usr
-
-#includes and libs
-INCS = -I$(PREFIX)/include
-LIBS =
-
-# flags
-CPPFLAGS = $(INCS)
-CFLAGS = -std=c89 -Wall -Wextra -pedantic
-LDFLAGS = -L$(PREFIX)/lib $(LIBS)
+# Flags
+CPPFLAGS =
+CFLAGS = -std=c89 -Wall -Wextra -pedantic `sdl2-config --cflags`
+LDFLAGS = -L$(PREFIX)/lib `sdl2-config --libs`
 
 # compiler and linker
 CC = cc
 
-
 examples = files hello sdl weekday
 
-all: $(examples)
+all: options $(examples)
 
 options:
 	@echo 'examples build options:'
@@ -32,7 +24,7 @@ hello: hello.c ../err.c
 	$(CC) -o $@ $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) $?
 
 sdl: sdl.c ../err.c
-	$(CC) -o $@ $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) `sdl2-config --cflags --libs` $?
+	$(CC) -o $@ $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) $?
 
 weekday: weekday.c ../err.c
 	$(CC) -o $@ $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) $?
