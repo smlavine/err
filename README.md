@@ -25,6 +25,11 @@ git subtree --squash -P err/ add https://git.sr.ht/~smlavine/err 2.0.0
 Be sure to assign a value to `program_invocation_name` before calling
 any err functions.
 
+Subscribe to [the err-announce mailing list][list] to be informed of
+updates to the library.
+
+[list]: https://lists.sr.ht/~smlavine/err-announce
+
 ## Generating documentation
 
 err uses Doxygen to generate documentation. To compile the documentation
