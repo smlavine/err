@@ -17,10 +17,11 @@ You can download the latest version of err from
 Alternatively, you may wish to import err as a git subtree:
 
 ```
-git subtree --squash -P err/ add https://git.sr.ht/~smlavine/err 2.0.0
+git subtree --squash -P vendor/err/ add https://git.sr.ht/~smlavine/err 2.0.0
 ```
 
-`#include "err.h"` in files where you want to use err functions.
+`#include "err.h"` (or the equivalent path) in files where you want to
+use err functions.
 
 Be sure to assign a value to `program_invocation_name` before calling
 any err functions.
